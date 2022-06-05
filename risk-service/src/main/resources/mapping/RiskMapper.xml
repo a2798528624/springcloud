@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zsb.risk.mapper.RiskMapper">
+       <insert id="PostRiskForm">
+         insert  into risk(`name`,region,`data`,critical,`desc`)
+           values (#{name},#{region},#{data},#{critical},#{desc})
+       </insert>
+
+       <select id="getRiskCount" resultType="java.lang.Integer">
+            select  count(1)
+             from  risk
+       </select>
+
+    <select id="getAllRisks" resultType="com.zsb.risk.pojo.Risk">
+        SELECT * FROM risk
+        LIMIT #{pageStart},#{pageSize}
+    </select>
+</mapper>

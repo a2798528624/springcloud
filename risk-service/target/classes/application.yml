@@ -1,0 +1,25 @@
+server:
+  port: 9100
+spring:
+  application:
+    name: risk-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloud_risk?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8
+    username: root
+    password: 1131
+    driver-class-name: com.mysql.jdbc.Driver
+#  cloud:
+#    nacos:
+#      discovery:
+#        enabled: true
+#        server-addr: 127.0.0.1:8848
+mybatis:
+  type-aliases-package: com.zsb.risk.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapping/*Mapper.xml
+logging:
+  level:
+    cn.itcast: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
